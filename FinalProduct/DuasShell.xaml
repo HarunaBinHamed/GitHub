@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:views="clr-namespace:FinalProduct.Views"
+             x:Class="FinalProduct.DuasShell">
+    
+    
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Color x:Key="ThemeColor">Blue</Color>
+            <Color x:Key="GrayColor">Gray</Color>
+            <Color x:Key="BgColor">White</Color>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource BgColor}"/>
+                <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource ThemeColor}"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource GrayColor}"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource ThemeColor}"/>
+            </Style>
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}"/>
+            <DataTemplate x:Key="MenuTemplate">
+                <StackLayout Orientation="Horizontal">
+                    <Image Margin="30,10,20,10" Source="{Binding Icon}" WidthRequest="22" HeightRequest="22" HorizontalOptions="Start" VerticalOptions="Center"/>
+                    <Label Text="{Binding Title}" TextColor="Red" FontSize="16" VerticalOptions="Center"/>
+                </StackLayout>
+            </DataTemplate>
+            <DataTemplate x:Key="FlyoutHeaderTemplate">
+                <ContentView BackgroundColor="{StaticResource ThemeColor}" HeightRequest="245">
+                    <Image Source="b3.png" WidthRequest="96" HeightRequest="96"
+                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                </ContentView>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Shell.Resources>
+    
+   
+
+    <FlyoutItem Title="Home" Icon="home.png">
+        
+        <Tab Title="Home" Icon="home.png">
+            <ShellContent ContentTemplate="{DataTemplate views:Home}" Icon="b4.png" />
+        </Tab>
+        <Tab Title="Duas" Icon="Dua1.png">
+            <ShellContent ContentTemplate="{DataTemplate views:Duas}" />
+        </Tab>
+        <Tab Title="Calenderal" Icon="calender1.png">
+            <ShellContent ContentTemplate="{DataTemplate views:CalendarDuas}" />
+        </Tab>
+        <Tab Title="Locational" Icon="Location1.png">
+            <ShellContent ContentTemplate="{DataTemplate views:LocationalDuas}" />
+        </Tab>
+    </FlyoutItem>
+
+    
+
+
+    <MenuItem Text="DuaPhotos" Command="{Binding NavigateCommand}" CommandParameter="DuaPhotos" IconImageSource="Photo.png"/>
+    <MenuItem Text="Settings" Command="{Binding NavigateCommand}" CommandParameter="Settings" IconImageSource="Settings.png"/>
+    <MenuItem Text="AboutUs" Command="{Binding NavigateCommand}" CommandParameter="Aboutus" IconImageSource="Aboutus.png"/>
+
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid BackgroundColor="WhiteSmoke" HeightRequest="200">
+                <Image Aspect="AspectFill"
+                       Source="b3.png"
+                       Opacity="0.4"/>
+                <Label Text="لسَّلامُ عَلَيْكُم وَرَحْمَةُ اَللهِ وَبَرَكاتُهُ‎" FontSize="20" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" />
+
+            </Grid>
+
+        </DataTemplate>
+
+    </Shell.FlyoutHeaderTemplate>
+</Shell>

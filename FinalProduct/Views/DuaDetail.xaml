@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FinalProduct.Views.DuaDetail">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center">
+            <Label Text="Welcome to Duas"/>
+            <Image x:Name="MyImageCall" HeightRequest="100" WidthRequest="100"/>
+            <Label x:Name="MyItemNameShow" HorizontalTextAlignment="Center"/>
+            <Label x:Name="MyLocationItemShow" Margin="20,20" FontSize="Small"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
